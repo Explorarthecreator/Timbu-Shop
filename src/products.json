@@ -1,0 +1,76 @@
+{
+    "products":[
+        {
+            "id": 1,
+            "name":"Touch bright & Clear Cream | 150ml",
+            "price":12000,
+            "image":"/images/product1.jpg"
+        },
+        {
+            "id": 2,
+            "name":"Cosrx The Vitamin C 13 Serum | 60ml",
+            "price":10000,
+            "image":"/images/product2.jpg"
+        },
+        {
+            "id": 3,
+            "name":"G. Molecules Niacinamide | 120ml",
+            "price":15200,
+            "image":"/images/product3.jpg"
+        },
+        {
+            "id": 4,
+            "name":"Cerave Foaming & Cleanser | 473ml",
+            "price":12000,
+            "image":"/images/product4.jpg"
+        },
+        {
+            "id": 5,
+            "name":"Balance Vit.C Glow Radiance Serum | 30ml",
+            "price":10000,
+            "image":"/images/product5.jpg"
+        },
+        {
+            "id": 6,
+            "name":"Tam Snail & Azulene Low pH cleanser | 150ml",
+            "price":15000,
+            "image":"/images/product6.jpg"
+        },
+        {
+            "id": 7,
+            "name":"Good SKin Club Emulsion Gel | 30ml",
+            "price":8000,
+            "image":"/images/product7.jpg"
+        },
+        {
+            "id": 8,
+            "name":"LRP Double Gel Moisturizer | 400ml",
+            "price":22000,
+            "image":"/images/product8.jpg"
+        },
+        {
+            "id": 9,
+            "name":"Charbarl Charcoal Mask | 150g",
+            "price":10000,
+            "image":"/images/product9.jpg"
+        },
+        {
+            "id": 10,
+            "name":"The Ordinary AHA BHA Peeling Solution | 60ml",
+            "price":12000,
+            "image":"/images/product10.jpg"
+        },
+        {
+            "id": 11,
+            "name":"Clinique Wrinkle Correcting Eye Serum | 50ml",
+            "price":25200,
+            "image":"/images/product11.jpg"
+        },
+        {
+            "id": 12,
+            "name":"Curology Foaming Cleanser | 273ml",
+            "price":12000,
+            "image":"/images/product12.jpg"
+        }
+    ]
+}
