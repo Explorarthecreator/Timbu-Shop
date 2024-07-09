@@ -54,8 +54,8 @@ function Navbar() {
   return (
     <>
         <div className=' bg-[#C6BDDE] flex items-center justify-between px-4 py-5 lg:w-4/5 lg:m-auto lg:bg-transparent lg:border-b lg:border-[#C8C0DE] lg:mb-3'>
-          <div className="hidden">
-            <label className="input border border-[#C8C0DE] rounded-3xl w-72 flex flex-row-reverse items-center gap-4">
+          <div className="hidden lg:block">
+            <label className="input border border-[#C8C0DE] rounded-3xl w-72 flex flex-row-reverse items-center gap-4 ">
               <input type="text" className="grow placeholder-black" placeholder="Search" />
               <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -73,21 +73,16 @@ function Navbar() {
                <img src={logo} alt="Timbu logo" />
             </Link>
             <div className='flex gap-4 items-center'>
+                <Link className="indicator" onClick={()=>document.getElementById('cart_modal').showModal()}>
+                    <img src={cartlogo} alt="cart" />
+                    <span className="badge badge-xs border-none text-white bg-black indicator-item">
+                    {
+                        cart.length
+                    }
+                    </span>
+                </Link>
               <Link>
                 <img src={profile} alt="profile" />
-              </Link>
-
-              <Link>
-                <img src={heart} alt="wishlist" />
-              </Link>
-
-              <Link className="indicator" onClick={()=>document.getElementById('cart_modal').showModal()}>
-                <img src={cartlogo} alt="cart" />
-                <span className="badge badge-xs border-none text-white bg-black indicator-item">
-                  {
-                    cart.length
-                  }
-                </span>
               </Link>
             </div>
 
@@ -138,8 +133,8 @@ function Navbar() {
                                                 }
                                             </h2>
 
-                                            <div className=' text-lg'>
-                                                <span className={`p-1 cursor-pointer lg:hover:scale-110  ${singleCart.quantity <=1 && ' invisible'}`} onClick={()=>reduceQuantity(index,singleCart.quantity)}>-</span>
+                                            <div className='border-b-2 border-[#121212] text-lg'>
+                                                <span className={`p-1 cursor-pointer lg:hover:scale-110 `} onClick={()=>reduceQuantity(index,singleCart.quantity)}>-</span>
                                                 <span className='p-1'>
                                                     {
                                                         singleCart.quantity

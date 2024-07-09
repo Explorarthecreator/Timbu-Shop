@@ -6,6 +6,8 @@ import Productitem from "./Productitem"
 import { addToCart } from "../features/cart/cartSlice"
 
 
+
+
 function Productlist() {
     const {products,quantity} = useSelector((state)=>state.product)
     const dispatch = useDispatch()

@@ -28,8 +28,8 @@ function Cartitem({cart,increase, decrease,index}) {
                         }
                     </h2>
 
-                    <div className=' text-lg md:text-xl xl:text-2xl'>
-                        <span className={`p-1 cursor-pointer lg:hover:scale-110  ${cart.quantity <=1 && ' invisible'}`} onClick={()=>decrease(index,cart.quantity)}>-</span>
+                    <div className=' border-b-2 border-[#121212] text-lg md:text-xl xl:text-2xl'>
+                        <span className={`p-1 cursor-pointer lg:hover:scale-110 `} onClick={()=>decrease(index,cart.quantity)}>-</span>
                         <span className='p-1'>
                             {
                                 cart.quantity

@@ -23,7 +23,7 @@ function Cart() {
 
     const reduceQuantity = (index,quantity)=>{
         if(quantity === 1){
-            toast.warning('You must have one item')
+            toast.warning('You must have one quantity')
         }else{
             const update = {
                 index,
