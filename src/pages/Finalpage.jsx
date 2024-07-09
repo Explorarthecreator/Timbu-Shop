@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 
 const svgVariant ={
@@ -20,17 +20,9 @@ const svgVariant ={
 
 
 function Finalpage() {
-    const navigate = useNavigate()
-    useEffect(()=>{
-        setTimeout(() => {
-            navigate('/')
-        }, 3000);
-
-        // eslint-disable-next-line 
-    },[])
     
   return (
-    <div className=" h-[40vh] flex items-center justify-center text-center ">
+    <div className=" h-[40vh] flex flex-col gap-5 items-center justify-center text-center ">
         <div>
             <motion.svg variants={svgVariant} initial="hidden" animate="visible" className="m-auto lg:hidden" width="91" height="91" viewBox="0 0 91 91" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="91" height="91" rx="45.5" fill="#190D40"/>
@@ -64,7 +56,15 @@ function Finalpage() {
                     We’ll send your receipt to your mail 
                 </p>
             </motion.div>
+
+            
         </div>
+
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1,ease:'circInOut'}}>
+            <Link to={'/'} className={`btn w-full lg:w-60 rounded-xl bg-[#190D40] text-white lg:hover:bg-transparent lg:hover:border-[#190D40] lg:hover:text-[#190D40]`}> 
+                Continue Shopping
+            </Link>
+        </motion.div>
     </div>
   )
 }

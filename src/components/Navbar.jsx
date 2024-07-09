@@ -2,7 +2,6 @@
 import logo from '../images/Timbu.svg'
 import close from '../images/close.svg'
 import cartlogo from '../images/cart.svg'
-import heart from '../images/heart.svg'
 import profile from '../images/account.svg'
 import { Link } from 'react-router-dom'
 

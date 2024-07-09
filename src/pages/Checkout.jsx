@@ -38,15 +38,15 @@ function Checkout() {
           </div>
 
           {/* Double Text Box */}
-          <div className='flex flex-col lg:flex-row lg:gap-4 my-2 gap-2'>
-            <div className='lg:w-2/5'>
+          <div className='flex flex-col lg:flex-row lg:justify-between my-2 gap-2'>
+            <div className='lg:w-2/4'>
               <label className=' font-medium text-base'>
                 First Name
               </label>
               <input type="text" placeholder='First Name' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
             </div>
 
-            <div className='lg:w-2/5'>
+            <div className='lg:w-2/4'>
               <label className=' font-medium text-base'>
                 Last Name
               </label>
@@ -63,15 +63,15 @@ function Checkout() {
           </div>
 
           {/* Double Text Box */}
-          <div className='flex flex-col lg:flex-row lg:gap-4 my-2 gap-2'>
-            <div className='lg:w-2/5'>
+          <div className='flex flex-col lg:flex-row lg:justify-between my-2 gap-2'>
+            <div className='lg:w-2/4'>
               <label className=' font-medium text-base'>
                 Country
               </label>
               <input type="text" placeholder='Country' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
             </div>
 
-            <div className='lg:w-2/5'>
+            <div className='lg:w-2/4'>
               <label className=' font-medium text-base'>
                 State
               </label>
