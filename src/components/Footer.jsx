@@ -6,7 +6,7 @@ function Footer() {
       <div className='footer lg:footer-center'>
         <aside className='mb-8'>
           <img src={logo} alt="Timbu Logo" />
-          <p className=' leading-5 text-left lg:text-center mt-2 md:block w-11/12 lg:w-4/5'>
+          <p className=' leading-5 text-left lg:text-center mt-2 md:block w-11/12 lg:w-1/2'>
             At Timbu, we bring together the finest skincare products from trusted brands to offer you personalized regimens that celebrate your unique skin. Our commitment is to help you achieve radiant, healthy skin through high-quality products, and a deep understanding of your skincare needs.
           </p>
         </aside>
