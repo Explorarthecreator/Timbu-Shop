@@ -1,6 +1,9 @@
 import { motion } from "framer-motion"
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
+import { clearCart, reset } from "../features/cart/cartSlice";
 
 
 const svgVariant ={
@@ -20,6 +23,11 @@ const svgVariant ={
 
 
 function Finalpage() {
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(clearCart())
+        dispatch(reset())
+    },[])
     
   return (
     <div className=" h-[40vh] flex flex-col gap-5 items-center justify-center text-center ">
