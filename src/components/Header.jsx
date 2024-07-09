@@ -10,7 +10,7 @@ function Header() {
     }
   }
   return (
-    <div className='font-poppins font-bold h-12 md:h-16 lg:h-28 w-full relative flex items-center justify-center'>
+    <div className='font-poppins font-bold h-12 md:h-16 lg:h-28 w-full relative flex items-center justify-center text-base lg:text-2xl'>
       
       <h1>
         {
@@ -21,6 +21,12 @@ function Header() {
         }
         {
           pathMatchRoute('/checkout') && 'Checkout'
+        }
+        {
+          pathMatchRoute('/processing-payment') && 'Processing Payment'
+        }
+        {
+          pathMatchRoute('/thank-you') && 'Thank you for shopping'
         }
       </h1>
       <img src={header} alt="" className='w-full h-full absolute left-0 top-0 -z-10' />
