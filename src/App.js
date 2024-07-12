@@ -8,7 +8,7 @@ import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setProducts } from "./features/product/productSlice";
+import { getProducts, setProducts } from "./features/product/productSlice";
 import productsData from './products.json'
 import 'react-toastify/dist/ReactToastify.css';
 import Processingpayment from "./pages/Processingpayment";
@@ -20,6 +20,7 @@ function App() {
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(setProducts(productsData.products))
+    dispatch(getProducts(1))
     
   })
   return (
