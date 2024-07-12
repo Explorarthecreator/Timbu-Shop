@@ -20,7 +20,7 @@ function App() {
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(setProducts(productsData.products))
-    dispatch(getProducts(1))
+    // dispatch(getProducts(1))
     
   })
   return (

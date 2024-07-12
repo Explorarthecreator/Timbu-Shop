@@ -5,9 +5,9 @@ export default function(app) {
     createProxyMiddleware({
       target: 'https://api.timbu.cloud',
       changeOrigin: true,
-      pathRewrite: {
-        '^/api': '',
-      },
+      // pathRewrite: {
+      //   '^/api': '',
+      // },
     })
   );
 }; 

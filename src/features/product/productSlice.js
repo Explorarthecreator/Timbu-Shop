@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+// import axios from "axios";
 
 const initialState = {
     products : [],
@@ -7,26 +8,26 @@ const initialState = {
 }
 
 
-export const getProducts = createAsyncThunk('products/getAll',async(age,thunkAPI)=>{
-    try {
-        const response = await axios.get('/api/products', {
-            headers:{
+// export const getProducts = createAsyncThunk('products/getAll',async(age,thunkAPI)=>{
+//     try {
+//         const response = await axios.get('/api/products', {
+//             headers:{
 
-            },
-            params: {
-              organization_id: '6530a53bcd4945e7bd5ced47bc316c10',
-              reverse_sort: false,
-              page:age,
-              Appid: 'UJ1RLO83557FEP4',
-              Apikey: '6b4ff02cb4f04cff84363cc80554f0e920240712132958737265',
-            },
-          });
+//             },
+//             params: {
+//               organization_id: '6530a53bcd4945e7bd5ced47bc316c10',
+//               reverse_sort: false,
+//               page:age,
+//               Appid: 'UJ1RLO83557FEP4',
+//               Apikey: '6b4ff02cb4f04cff84363cc80554f0e920240712132958737265',
+//             },
+//           });
 
-          console.log(response.data)
-    } catch (error) {
+//           console.log(response.data)
+//     } catch (error) {
         
-    }
-})
+//     }
+// })
 
 export const ProductSlice = createSlice({
     name: 'product',
