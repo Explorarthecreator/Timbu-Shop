@@ -126,11 +126,11 @@ function Navbar() {
                                             } 
                                         </p>
                                         <div className="flex items-center justify-between  mt-3">
-                                            {/* <h2 className=" text-xs font-bold">
+                                            <h2 className=" text-xs font-bold">
                                                 ₦{
                                                     (singleCart.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')
                                                 }
-                                            </h2> */}
+                                            </h2>
 
                                             <div className='border-b-2 border-[#121212] text-lg'>
                                                 <span className={`p-1 cursor-pointer lg:hover:scale-110 `} onClick={()=>reduceQuantity(index,singleCart.quantity)}>-</span>

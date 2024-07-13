@@ -19,9 +19,6 @@ export const getProducts = createAsyncThunk('products/getAll',async(age,thunkAPI
     console.log(age);
     try {
         const response = await axios.get('https://timbu-get-all-products.reavdev.workers.dev/', {
-            headers:{
-
-            },
             params: {
               organization_id:process.env.REACT_APP_ORGANIZATION_ID ,
               reverse_sort: false,

@@ -56,8 +56,8 @@ function Productlist({products}) {
             quantity:number
         }
 
-        // dispatch(addToCart(cartData))
-        console.log(cartData);
+        dispatch(addToCart(cartData))
+        // console.log(cartData);
         document.getElementById('productDescriptionModal').close()
 
     }

@@ -24,7 +24,7 @@ function Cartitem({cart,increase, decrease,index}) {
                 <div className="flex lg:flex-col lg:items-start lg:gap-3 justify-between items-center mt-3">
                     <h2 className=" text-xs lg:text-2xl font-bold">
                         ₦{
-                            cart.price
+                            (cart.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')
                         }
                     </h2>
 
