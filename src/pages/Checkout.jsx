@@ -1,9 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 function Checkout() {
   const {cart} = useSelector((state)=>state.cart)
+  const navigate = useNavigate()
+  const  [firstName, setFirstName] = useState('')
+  const  [lastName, setLastName] = useState('')
+  const  [email, setEmail] = useState('')
+  const  [phoneNumber, setPhoneNumber] = useState('')
+  const  [country, setCountry] = useState('')
+  const  [state, setState] = useState('')
 
         // eslint-disable-next-line
   const [total,setTotal] = useState(()=>{
@@ -13,6 +21,16 @@ function Checkout() {
     ))
     return total
   })
+
+  const processPayment = ()=>{
+
+    if(email === '' || firstName === '' || lastName === '' || country===''|| phoneNumber===''){
+      toast.error('Please fill out all the fields in the CHeckout form')
+      return
+    }else{
+      navigate('/processing-payment')
+    }
+  }
 
   return (
     <div className='flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-x-14 xl:gap-20'>
@@ -34,7 +52,7 @@ function Checkout() {
             <label className=' font-medium text-base'>
               Email Address
             </label>
-            <input type="email" placeholder='Email Address' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
+            <input type="email" placeholder='Email Address' id='email' value={email} onChange={(e)=>setEmail(e.target.value)} className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
           </div>
 
           {/* Double Text Box */}
@@ -43,14 +61,14 @@ function Checkout() {
               <label className=' font-medium text-base'>
                 First Name
               </label>
-              <input type="text" placeholder='First Name' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
+              <input type="text" placeholder='First Name' id='firstName' value={firstName} onChange={(e)=>setFirstName(e.target.value)} className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
             </div>
 
             <div className='lg:w-2/4'>
               <label className=' font-medium text-base'>
                 Last Name
               </label>
-              <input type="text" placeholder='Last Name' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
+              <input type="text" placeholder='Last Name' id='lastName' value={lastName} onChange={(e)=>setLastName(e.target.value)} className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
             </div>
           </div>
 
@@ -68,14 +86,14 @@ function Checkout() {
               <label className=' font-medium text-base'>
                 Country
               </label>
-              <input type="text" placeholder='Country' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
+              <input type="text" placeholder='Country' id='country' value={country} onChange={(e)=>setCountry(e.target.value)} className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
             </div>
 
             <div className='lg:w-2/4'>
               <label className=' font-medium text-base'>
                 State
               </label>
-              <input type="text" placeholder='State' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
+              <input type="text" placeholder='State' id='state' value={state} onChange={(e)=>setState(e.target.value)} className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
             </div>
           </div>
 
@@ -84,7 +102,7 @@ function Checkout() {
             <label className=' font-medium text-base'>
               Phone Number
             </label>
-            <input type="text" placeholder='Phone Number' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
+            <input type="text" placeholder='Phone Number' id='phoneNumber' value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
           </div>
         </form>
       </div>
@@ -178,9 +196,9 @@ function Checkout() {
           
         </div>
 
-        <Link to={'/processing-payment'} className="btn border-none lg:border-solid mb-4 btn-md bg-[#190D40] w-full text-white mt-3 lg:hover:border-[#190D40] lg:hover:bg-transparent lg:hover:text-[#190D40] lg:hover:scale-105">
+        <button className="btn border-none lg:border-solid mb-4 btn-md bg-[#190D40] w-full text-white mt-3 lg:hover:border-[#190D40] lg:hover:bg-transparent lg:hover:text-[#190D40] lg:hover:scale-105" onClick={()=>processPayment()}>
           Pay Now
-        </Link>
+        </button>
         <p className='text-xs lg:text-base'>
           We accept every and any type of payment; Bank transfer, Debit/Credit cards, USSD.
         </p>
