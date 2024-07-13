@@ -12,6 +12,7 @@ function Checkout() {
   const  [phoneNumber, setPhoneNumber] = useState('')
   const  [country, setCountry] = useState('')
   const  [state, setState] = useState('')
+  const  [address, setAddress] = useState('')
 
         // eslint-disable-next-line
   const [total,setTotal] = useState(()=>{
@@ -24,7 +25,7 @@ function Checkout() {
 
   const processPayment = ()=>{
 
-    if(email === '' || firstName === '' || lastName === '' || country===''|| phoneNumber===''){
+    if(email === '' || firstName === '' || lastName === '' || country===''|| phoneNumber==='' || address ==''){
       toast.error('Please fill out all the fields in the CHeckout form')
       return
     }else{
@@ -77,7 +78,7 @@ function Checkout() {
             <label className=' font-medium text-base'>
               Address
             </label>
-            <input type="text" placeholder='Address' className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
+            <input type="text" placeholder='Address' id='address' value={address} onChange={(e)=>setAddress(e.target.value)} className='input border border-[#C6BDDE] w-full outline-none focus:outline-none' />
           </div>
 
           {/* Double Text Box */}
