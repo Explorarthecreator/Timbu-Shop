@@ -32,10 +32,12 @@ const CartSlice = createSlice({
                 state.cart.push(newCartitem)
                 toast.success('Added to cart')
             }
+
+            // console.log(action.payload);
         },
         clearCart:(state)=>{
             localStorage.removeItem('cart')
-            reset()
+            state.cart=[]
         },
         removeFromCart: (state,action)=>{
             const localCart = JSON.parse(localStorage.getItem('cart'))

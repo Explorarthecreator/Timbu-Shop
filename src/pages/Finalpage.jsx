@@ -27,6 +27,7 @@ function Finalpage() {
     useEffect(()=>{
         dispatch(clearCart())
         dispatch(reset())
+        // eslint-disable-next-line 
     },[])
     
   return (

@@ -1,13 +1,13 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 
 
 function Processingpayment() {
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     useEffect(()=>{
         setTimeout(() => {
             navigate('/thank-you')

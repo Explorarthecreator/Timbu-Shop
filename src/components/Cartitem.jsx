@@ -6,16 +6,16 @@ import close from '../images/close.svg'
 function Cartitem({cart,increase, decrease,index}) {
     const dispatch = useDispatch()
   return (
-    <div className=" border-b border-[#C6BDDE] flex gap-2 py-3 items-center relative">
-        <div className='absolute top-5 right-5 cursor-pointer hover:scale-125'>
+    <div className=" border-b border-[#C6BDDE] flex gap-2 lg:gap-10 py-3 items-center relative">
+        <div className='absolute top-5 right-2 lg:right-5 cursor-pointer hover:scale-125'>
             <img src={close} alt="" onClick={()=>dispatch(removeFromCart(index))}/>
         </div>
-        <div className=' text-center w-24 lg:w-1/5'>
-            <img src={cart.image} alt={`${cart.name}`} className='h-24 lg:h-32 w-full'/>
+        <div className=' text-center'>
+            <img src={`https://api.timbu.cloud/images/${cart.image}`} alt={`${cart.name}`} className=' w-24 h-24 lg:h-32 '/>
         </div>
         
         <div className=" lg:w-4/5">
-            <div className="">
+            <div className="w-48 md:w-56 lg:w-80">
                 <p className="w-3/4 lg:w-full text-xs lg:text-base leading-5">
                     {
                         cart.name

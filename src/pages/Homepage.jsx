@@ -1,37 +1,73 @@
 
+import { useEffect } from 'react'
 import Productlist from '../components/Productlist'
+import { useDispatch, useSelector } from 'react-redux'
+import { decreaseStep, getProducts, increaseStep } from '../features/product/productSlice'
+import Loading from '../components/Loading'
+import EmptyComponent from '../components/EmptyComponent'
+import Error from '../components/Error'
 
 function Homepage() {
+  const dispatch = useDispatch()
+
+  const {productsLoading,productsSuccess,productsError,products,step} = useSelector((state)=>state.product)
+
+  useEffect(()=>{
+    dispatch(getProducts(1))
+    // eslint-disable-next-line 
+  },[])
+
+  if(productsLoading){
+    return <Loading/>
+  }
+  if(productsError){
+    return <Error/>
+  }
   return (
     <div className=''>
-      <Productlist/>
-      {/* <div className="w-[170px] border border-[#C6BDDE] p-2 card">
-        <figure>
-          <img src={product} alt="" />
-        </figure>
-        <div className="mt-3">
-          <div className='flex text-xs'>
-            <p className=' w-2/3'>
-              Touch bright & Clear Cream | 150ml
-            </p>
-            <h3 className='w-1/5 font-bold'>
-              ₦12,000
-            </h3>
-          </div>
-          <div className='flex justify-between items-center'>
-            <div className=' border-b-2 w-1/3 text-lg flex'>
-              <span className='p-1' onClick={()=>alert('God is also Good')}>-</span>
-              <span className='p-1'>0</span>
-              <span className='p-1' onClick={()=>alert('God is Good')}>+</span>
-            </div>
-            <div className='w-3/5'>
-              <button className=' btn btn-sm p-2 rounded-xl bg-[#190D40] text-white text-xs'>
-                Add to cart
-              </button>
-            </div>
-          </div>
+
+      {
+        productsSuccess && 
+        <Productlist products={products.items}/>
+      }
+
+      {
+        (productsSuccess && products.items.length <=0) &&
+        <EmptyComponent/>
+      }
+      
+
+      <div className=' mt-10 flex justify-center'>
+        <div className="join gap-2">
+          <button className={`join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110 ${step === 1 && 'btn-disabled'}`}
+            onClick={()=>{
+              dispatch(decreaseStep())
+              dispatch(getProducts(step-1))
+            }}
+          >
+            {`<`}
+          </button>
+          <button className="join-item btn btn-md btn-active bg-[#190D40] text-white hover:text-[#190D40] hover:bg-transparent hover:border hover:border-[#C6BDDE] hover:scale-110">
+            {
+              step
+            }
+          </button>
+          <button className="join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110">
+            {
+              step+1
+            }
+          </button>
+          <button className="join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110">
+            {
+              step + 2
+            }
+          </button>
+          <button className="join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110" onClick={()=> {
+            dispatch(increaseStep())
+            dispatch(getProducts(step+1))
+          }}>{`>`}</button>
         </div>
-      </div> */}
+      </div>
       
     </div>
   )

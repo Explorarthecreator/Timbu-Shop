@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { addToCart, increase, reduce } from '../features/cart/cartSlice'
 import Productitem from '../components/Productitem'
+import { getProducts } from '../features/product/productSlice'
 
 
 function Cart() {
@@ -64,19 +65,16 @@ function Cart() {
         // eslint-disable-next-line
     },[cart])
 
-    useEffect(()=>{
-        const randomItems = []
+    // useEffect(()=>{
+    //   if(products.items.length>=1){
+    //     const randomItems = [products.items[9],products.items[7],products.items[3],products.items[8]]
 
-        const productsCopy = [...products]
-
-        for(let i =0; i<4;i++){
-            const randomIndex = Math.floor(Math.random() * productsCopy.length);
-            randomItems.push(productsCopy.splice(randomIndex, 1)[0]);
-        }
-
-        setFeatureProducts(randomItems)
-        // eslint-disable-next-line
-    },[products])
+    //     setFeatureProducts(randomItems)
+    //   }
+        
+    //     // eslint-disable-next-line
+    // },[products])
+    
 
   return (
     <div className=''>
@@ -142,18 +140,24 @@ function Cart() {
 
 
 
-      <h1 className='text-black font-semibold text-xl lg:text-2xl mt-5 '>
-        You may also like
-      </h1>
+      {/* {
+        products.length >=1 && 
+        <>
+          <h1 className='text-black font-semibold text-xl lg:text-2xl mt-5 '>
+            You may also like
+          </h1>
 
 
-      <div className=' flex overflow-scroll lg:overflow-hidden gap-4 py-6'>
-        {
-            featureProducts?.map((product)=>(
-                <Productitem key={product.id} product={product} addToCart={increaseCart}/>
-            ))
-        }
-      </div>
+          <div className=' flex overflow-scroll lg:overflow-hidden gap-4 py-6'>
+            {
+                products.items?.map((product)=>(
+                    <Productitem key={product.id} product={product} addToCart={increaseCart}/>
+                ))
+            }
+          </div>
+
+        </>
+      } */}
     </div>
   )
 }

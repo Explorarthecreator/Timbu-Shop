@@ -104,8 +104,8 @@ function Checkout() {
 
                   <div key={singleCart.id} className=" bg-white rounded-xl flex gap-2 p-3 items-center">
                 
-                    <div className=' w-[77px] h-20 text-center'>
-                        <img src={singleCart.image} alt={`Touch Bright & Clear cream`} className=' h-20'/>
+                    <div className='text-center'>
+                        <img src={`https://api.timbu.cloud/images/${singleCart.image}`} alt={`Touch Bright & Clear cream`} className=' w-[77px] h-[77px]'/>
                     </div>
                     
                     <div className=" ">

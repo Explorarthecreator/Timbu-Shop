@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 
-function Productitem({product, addToCart}) {
+function Productitem({product, addToCart,open_modal}) {
   // const navigate = useNavigate()
     const [number, setNumber] = useState(1)
 
@@ -14,7 +14,7 @@ function Productitem({product, addToCart}) {
       }
     }
   return (
-    <div className="w-[170px] flex-shrink-0 md:w-[200px] lg:w-[230px] xl:w-[258px] border border-[#C6BDDE] p-2 card relative">
+    <div className="w-[170px] flex-shrink-0 md:w-[200px] lg:w-[230px] xl:w-[258px] border border-[#C6BDDE] p-2 card relative" >
         <div className='absolute right-4 top-3'>
           {/* <img src={heart} alt=""/> */}
           <svg className=' w-5 h-5 hover:cursor-pointer fill-[#190D40] hover:scale-125 hover:fill-[#190D40]' viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -23,10 +23,10 @@ function Productitem({product, addToCart}) {
 
         </div>
         <figure>
-          <img src={process.env.PUBLIC_URL + product.image} alt="" className='h-24 lg:h-32'/>
+          <img src={`https://api.timbu.cloud/images/${product.photos[0].url}`} alt="" className='h-24 lg:h-32'/>
         </figure>
         <div className="mt-3">
-          <div className='flex gap-2 text-xs lg:text-sm h-16 lg:h-12 '>
+          <div className='flex gap-2 text-xs lg:text-sm h-16 lg:h-12 hover:cursor-pointer ' onClick={()=>open_modal(product.id)}>
             <p className=' w-2/3 md:w-3/5 xl:w-3/4'>
               {
                 product.name
@@ -34,7 +34,7 @@ function Productitem({product, addToCart}) {
             </p>
             <h3 className='w-1/5 md:w-1/4 font-bold'>
               ₦{
-                (product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')
+                (product.current_price[0]?.NGN[0]).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')
               }
             </h3>
           </div>

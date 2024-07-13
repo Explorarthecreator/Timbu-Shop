@@ -6,23 +6,13 @@ import Footer from "./components/Footer"
 import Homepage from "./pages/Homepage"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getProducts, setProducts } from "./features/product/productSlice";
-import productsData from './products.json'
 import 'react-toastify/dist/ReactToastify.css';
 import Processingpayment from "./pages/Processingpayment";
 import Finalpage from "./pages/Finalpage";
-// import Navigation from "./components/Navigation";
 
 
 function App() {
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(setProducts(productsData.products))
-    // dispatch(getProducts(1))
-    
-  })
+  
   return (
     <>
       <Router>

@@ -91,7 +91,7 @@ function Navbar() {
         </div>
 
         <dialog id="cart_modal" className="modal  modal-top h-screen rounded-xl lg:mt-10 font-poppins ">
-          <div className="modal-box w-full lg:w-[512px]  m-auto rounded-xl absolute  lg:right-36 lg:top-4">
+          <div className="modal-box w-full md:w-[512px] lg:w-[512px]  m-auto rounded-xl absolute md:right-20 md:top-4  lg:right-36 lg:top-4">
               <div className="flex items-center justify-between">
                   <h3 className="font-bold text-lg">
                       Cart({cart.length}) 
@@ -110,27 +110,27 @@ function Navbar() {
                     <div className="mt-6 px-4">
                     {
                         cart.map((singleCart,index)=>(
-                            <div key={singleCart.id} className=" border-b border-[#C6BDDE] flex mt-2  py-3 items-center  relative">
+                            <div key={singleCart.id} className=" border-b border-[#C6BDDE] flex gap-4 mt-2  py-3 items-center  relative">
                                 <div className='absolute top-0 right-0 cursor-pointer hover:scale-125' onClick={()=>dispatch(removeFromCart(index))}>
                                     <img src={close} alt="" />
                                 </div>
-                                <div className=' w-24 text-center'>
-                                    <img src={singleCart.image} alt={`Touch Bright & Clear cream`} className='w-full'/>
+                                <div className=' text-center'>
+                                    <img src={`https://api.timbu.cloud/images/${singleCart.image}`} alt={`Touch Bright & Clear cream`} className='w-24 h-24'/>
                                 </div>
                                     
                                 <div className="">
-                                    <div className=" lg:w-80">
+                                    <div className=" w-48 md:w-56 lg:w-80">
                                         <p className=" text-xs lg:text-base leading-5">
                                             {
                                                 singleCart.name
-                                            }
+                                            } 
                                         </p>
                                         <div className="flex items-center justify-between  mt-3">
-                                            <h2 className=" text-xs font-bold">
+                                            {/* <h2 className=" text-xs font-bold">
                                                 ₦{
                                                     (singleCart.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')
                                                 }
-                                            </h2>
+                                            </h2> */}
 
                                             <div className='border-b-2 border-[#121212] text-lg'>
                                                 <span className={`p-1 cursor-pointer lg:hover:scale-110 `} onClick={()=>reduceQuantity(index,singleCart.quantity)}>-</span>
