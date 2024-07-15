@@ -33,7 +33,6 @@ const CartSlice = createSlice({
                 toast.success('Added to cart')
             }
 
-            // console.log(action.payload);
         },
         clearCart:(state)=>{
             localStorage.removeItem('cart')

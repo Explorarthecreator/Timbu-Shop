@@ -115,7 +115,7 @@ function Navbar() {
                                     <img src={close} alt="" />
                                 </div>
                                 <div className=' text-center'>
-                                    <img src={`https://api.timbu.cloud/images/${singleCart.image}`} alt={`Touch Bright & Clear cream`} className='w-24 h-24'/>
+                                    <img src={`https://api.timbu.cloud/images/${singleCart.image}`} alt={singleCart.name} className='w-24 h-24'/>
                                 </div>
                                     
                                 <div className="">

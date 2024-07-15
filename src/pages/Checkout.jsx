@@ -25,8 +25,8 @@ function Checkout() {
 
   const processPayment = ()=>{
 
-    if(email === '' || firstName === '' || lastName === '' || country===''|| phoneNumber==='' || address ==''){
-      toast.error('Please fill out all the fields in the CHeckout form')
+    if(email === '' || firstName === '' || lastName === '' || country===''|| phoneNumber==='' || address ==='' || state === ''){
+      toast.error('Please fill out all the fields in the Checkout form')
       return
     }else{
       navigate('/processing-payment')

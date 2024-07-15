@@ -16,7 +16,7 @@ const initialState = {
 
 
 export const getProducts = createAsyncThunk('products/getAll',async(age,thunkAPI)=>{
-    console.log(age);
+    
     try {
         const response = await axios.get('https://timbu-get-all-products.reavdev.workers.dev/', {
             params: {
@@ -28,11 +28,8 @@ export const getProducts = createAsyncThunk('products/getAll',async(age,thunkAPI
               Apikey: process.env.REACT_APP_APIKEY,
             },
           });
-
-          console.log(response.data)
           return response.data
     } catch (error) {
-        console.log(error.message);
         return thunkAPI.rejectWithValue(error.message)
     }
 })
@@ -40,9 +37,6 @@ export const getProducts = createAsyncThunk('products/getAll',async(age,thunkAPI
 export const getProduct = createAsyncThunk('products/getOne',async(id,thunkAPI)=>{
     try {
         const response = await axios.get(`https://timbu-get-single-product.reavdev.workers.dev/${id}`, {
-            headers:{
-
-            },
             params: {
               organization_id:process.env.REACT_APP_ORGANIZATION_ID ,
               Appid: process.env.REACT_APP_APPID,
@@ -50,10 +44,10 @@ export const getProduct = createAsyncThunk('products/getOne',async(id,thunkAPI)=
             },
           });
 
-          console.log(response.data);
+          
           return response.data
     } catch (error) {
-        console.log(error);
+        return thunkAPI.rejectWithValue(error.message)
     }
 })
 
