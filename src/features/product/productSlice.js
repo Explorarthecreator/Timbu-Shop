@@ -71,6 +71,9 @@ export const ProductSlice = createSlice({
         },
         decreaseStep:(state)=>{
             state.step = state.step -1
+        },
+        setStep:(state,action)=>{
+            state.step = action.payload
         }
     },
     extraReducers: (builder)=>{
@@ -103,6 +106,6 @@ export const ProductSlice = createSlice({
     }
 })
 
-export const {reset, resetProduct, setProduct, setProducts, increaseStep, decreaseStep} = ProductSlice.actions
+export const {reset, resetProduct, setProduct, setProducts, increaseStep, decreaseStep, setStep} = ProductSlice.actions
 
 export default ProductSlice.reducer

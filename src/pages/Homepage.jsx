@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import Productlist from '../components/Productlist'
 import { useDispatch, useSelector } from 'react-redux'
-import { decreaseStep, getProducts, increaseStep } from '../features/product/productSlice'
+import { decreaseStep, getProducts, increaseStep, setStep } from '../features/product/productSlice'
 import Loading from '../components/Loading'
 import EmptyComponent from '../components/EmptyComponent'
 import Error from '../components/Error'
@@ -52,12 +52,18 @@ function Homepage() {
               step
             }
           </button>
-          <button className="join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110">
+          <button className="join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110" onClick={()=> {
+            dispatch(setStep(step+1))
+            dispatch(getProducts(step +1))
+          }}>
             {
               step+1
             }
           </button>
-          <button className="join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110">
+          <button className="join-item btn btn-md bg-transparent border border-[#C6BDDE] hover:bg-transparent hover:scale-110" onClick={()=> {
+            dispatch(setStep(step+2))
+            dispatch(getProducts(step+2))
+          }}>
             {
               step + 2
             }
