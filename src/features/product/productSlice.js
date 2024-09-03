@@ -21,18 +21,22 @@ export const getProducts = createAsyncThunk(
 
     // https:
     try {
-      const response = await axios.get("https://api.timbu.cloud/products", {
-        params: {
-          organization_id: process.env.REACT_APP_ORGANIZATION_ID,
-          reverse_sort: false,
-          page: age,
-          size: 12,
-          Appid: process.env.REACT_APP_APPID,
-          Apikey: process.env.REACT_APP_APIKEY,
-        },
-      });
+      const response = await axios.get(
+        "https://corsanywhere.osinachi.me/https://api.timbu.cloud/products",
+        {
+          params: {
+            organization_id: process.env.REACT_APP_ORGANIZATION_ID,
+            reverse_sort: false,
+            page: age,
+            size: 12,
+            Appid: process.env.REACT_APP_APPID,
+            Apikey: process.env.REACT_APP_APIKEY,
+          },
+        }
+      );
       return response.data;
     } catch (error) {
+      console.log(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -84,6 +88,9 @@ export const ProductSlice = createSlice({
     setStep: (state, action) => {
       state.step = action.payload;
     },
+    resetError: (state) => {
+      state.productError = false;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -123,6 +130,7 @@ export const {
   increaseStep,
   decreaseStep,
   setStep,
+  resetError,
 } = ProductSlice.actions;
 
 export default ProductSlice.reducer;
