@@ -47,7 +47,7 @@ export const getProduct = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://api.timbu.cloud/products/${id}`,
+        `https://corsanywhere.osinachi.me/https://api.timbu.cloud/products/${id}`,
         {
           params: {
             organization_id: process.env.REACT_APP_ORGANIZATION_ID,
